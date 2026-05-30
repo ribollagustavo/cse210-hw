@@ -1,0 +1,30 @@
+Encapsulation is an object-oriented programming principle that involves keeping data and 
+the methods that work with that data together inside a class, relating back to it's purpose 
+of "encapsulating". It also helps hide the internal details of how an object works from 
+the rest of the program. Instead of other parts of the program directly changing an object's 
+data, they interact with it through methods provided by the class.
+
+A benefit of encapsulation is that it makes programs easier to maintain over time.
+If the internal implementation of a class changes, other classes that use it often do not 
+need to be updated. This reduces the chances of introducing bugs and makes the code more organized.
+
+In my scripture memorization program, encapsulation was used by allowing the Word class to manage 
+whether a word was hidden or visible. Rather than having the Scripture class directly change the 
+internal state of each word, it called methods on the Word objects. This kept the logic related 
+to words inside the Word class where it belongs.
+
+For example:
+
+public void HideRandomWords()
+{
+    foreach (Word word in _words)
+    {
+        word.Hide();
+    }
+}
+
+In this example, the Scripture class does not need to know how a word becomes hidden. It simply calls 
+the Hide() method on a Word object. While working on this project, I noticed that keeping the hiding 
+logic inside the Word class made the Scripture class much simpler. The details of hiding the word are 
+encapsulated within the Word class. This makes the program easier to understand, reuse, and update in 
+the future because each class is responsible for managing its own data and behavior.
