@@ -1,0 +1,28 @@
+Polymorphism is an object-oriented programming principle that allows objects of different classes to be treated as objects of the same base class. 
+Even though the objects share a common interface or method name, each class can provide its own implementation of that method. This allows a program 
+to work with different types of objects while using the same method calls.
+
+A benefit of polymorphism is that it makes programs more flexible and easier to extend. New classes can be added without requiring major changes to 
+existing code, as long as they follow the same interface or inherit from the same base class. This reduces code duplication and makes programs easier 
+to maintain over time.
+
+In my Eternal Quest program, polymorphism was used through the Goal base class and its derived classes such as SimpleGoal, EternalGoal, and ChecklistGoal. 
+Each goal type had its own implementation of methods like RecordEvent(), but the GoalManager could interact with all of them through the Goal base class. 
+This allowed different goal types to behave differently while being managed in the same collection.
+
+For example:
+
+List<Goal> goals = new List<Goal>(); 
+
+goals.Add(new SimpleGoal(...)); 
+goals.Add(new EternalGoal(...)); 
+
+foreach (Goal goal in goals) 
+{ 
+    goal.RecordEvent(); 
+}
+
+In this example, the GoalManager does not need to know the specific type of each goal. It simply calls the RecordEvent() method on each Goal object. While working 
+on this project, I noticed that polymorphism made the code much cleaner because I did not need separate logic for each goal type. The correct version of RecordEvent() 
+was automatically called based on the actual type of the object. This makes the program easier to understand, expand, and maintain because new goal types can be added 
+without changing the code that uses them.
